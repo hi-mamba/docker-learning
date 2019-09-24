@@ -1,6 +1,13 @@
 ## [原文](https://www.qikegu.com/docs/3033)
 
+## [Docker Java应用程序示例](https://www.yiibai.com/docker/docker-java-example.html)
+
+## [Run Java command line in Docker containers](https://gordonlesti.com/run-java-command-line-in-docker-containers/)
+
+
 # Docker Java 例子
+
+> 注意这个文件，在docker 设置好的 file sharing 里面设置的文件夹
 
 ## 1. 创建项目目录
 我们会把这个项目的相关文件，集中放到一个目录docker-java：
@@ -125,3 +132,11 @@ RUN javac TimeZoneExample.java
 CMD ["java", "TimeZoneExample"]
 ```
 如果还有MYSQL 之类的时区也记得设置
+
+
+## ps 
+```shell script
+docker run --rm -v "$PWD":/usr/src/hello-docker -w /usr/src/hello-docker openjdk:8 java
+```
+/usr/src/hello-docker 这个文件夹路径你需要注意，
+这里应该是你docker  file sharing 里面设置的

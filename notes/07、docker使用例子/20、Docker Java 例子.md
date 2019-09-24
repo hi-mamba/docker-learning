@@ -77,3 +77,51 @@ qikegu-java         latest              1842ec92df2d        13 minutes ago      
 This is java docker app - qikegu.com
 ```
 可以看到，qikegu-java镜像成功运行，输出了一条信息。
+
+
+## ps 如果遇到不输出的
+
+比如我的镜像是这个。。。。死活就是没有输出出来
+```dockerfile
+FROM openjdk:8-jdk-alpine
+COPY . /var/www/java
+WORKDIR /var/www/java
+RUN javac TimeZoneExample.java
+CMD ["java", "TimeZoneExample"]
+
+FROM alpine:3.6
+RUN apk update && apk add --no-cache tzdata
+ENV TZ=Asia/Shanghai
+
+RUN echo "Asia/Shanghai" > /etc/timezone
+```
+
+TimeZoneExample.java
+```Java
+import java.time.ZoneId;
+
+
+public class TimeZoneExample {
+    public static void main(String[] args) {
+        System.out.println("ZoneId={}"+ZoneId.systemDefault().getId());
+    }
+}
+```
+
+需要调整下  dockerfile文件
+
+```dockerfile
+
+FROM alpine:3.6
+RUN apk update && apk add --no-cache tzdata
+ENV TZ=Asia/Shanghai
+
+FROM openjdk:8-jdk-alpine
+COPY . /var/www/java
+WORKDIR /var/www/java
+# 注意这里的顺序
+RUN echo "Asia/Shanghai" > /etc/timezone
+RUN javac TimeZoneExample.java
+CMD ["java", "TimeZoneExample"]
+```
+如果还有MYSQL 之类的时区也记得设置

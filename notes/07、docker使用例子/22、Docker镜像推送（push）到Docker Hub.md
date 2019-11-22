@@ -33,6 +33,12 @@ tag命令修改为规范的镜像：
 $ docker tag java-docker-example kobe/java-docker-example
 ```
 
+如果tag 不规范，那么会报错
+```
+denied: requested access to the resource is denied : docker
+```
+因此需要带上登录的名字
+
 查看修改后的规范镜像：
 ```shell script
 $ docker images;

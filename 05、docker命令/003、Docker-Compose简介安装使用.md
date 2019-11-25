@@ -217,7 +217,7 @@ container_name: app
 version: '2'
 services:
   web:
-    build: .
+    build: ""
     depends_on:
       - db
       - redis

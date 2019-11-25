@@ -22,5 +22,6 @@
 
 -  删除Docker镜像、容器、数据卷等文件
 > $ sudo rm -rf /var/lib/docker
+
  
  

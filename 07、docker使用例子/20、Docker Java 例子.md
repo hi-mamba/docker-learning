@@ -10,7 +10,7 @@
 > 注意这个文件，在docker 设置好的 file sharing 里面设置的文件夹
 
 ## 1. 创建项目目录
-我们会把这个项目的相关文件，集中放到一个目录docker-java：
+我们会把这个项目的相关文件，集中放到一个目录docker-java
 ```shell script
 [root@qikegu demo]# mkdir docker-java
 ```
@@ -20,7 +20,7 @@
 ```java
 public class Qikegu{
     public static void main(String[] args){
-        System.out.println("This is java docker app - qikegu.com \n");
+        System.out.println("This is java docker Hello World \n");
     }
 }
 ```
@@ -68,6 +68,7 @@ Step 5/5 : CMD ["java", "Qikegu"]
 Successfully built 1842ec92df2d
 Successfully tagged qikegu-java:latest
 ```
+查看镜像
 ```shell script
 [root@qikegu docker-java]# docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -134,9 +135,15 @@ CMD ["java", "TimeZoneExample"]
 如果还有MYSQL 之类的时区也记得设置
 
 
-## ps 
+
+## 下面这种方式不需要build 镜像
+
+> 如果镜像不存在，会自动去拉取镜像
 ```shell script
-docker run --rm -v "$PWD":/usr/src/hello-docker -w /usr/src/hello-docker openjdk:8 java
+docker run -v "$PWD":/usr/src/hello-docker -w /usr/src/hello-docker openjdk:8 javac HelloWorld.java
+
+docker run -v "$PWD":/usr/src/hello-docker -w /usr/src/hello-docker openjdk:8 java HelloWorld
+This is java docker Hello World
 ```
 /usr/src/hello-docker 这个文件夹路径你需要注意，
 这里应该是你docker  file sharing 里面设置的

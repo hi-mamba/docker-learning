@@ -12,7 +12,7 @@ print("Hello, World!");
 
 ```shell script
 [root@localhost py-docker]# docker run -v $PWD/myapp:/usr/src/myapp -w /usr/src/myapp python:latest python helloworld.py
-hello docker world
+Hello, World!
 ```
 命令说明：
 

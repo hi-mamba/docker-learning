@@ -12,13 +12,13 @@
 ## 1. 创建项目目录
 我们会把这个项目的相关文件，集中放到一个目录docker-java
 ```shell script
-[root@qikegu demo]# mkdir docker-java
+[root@docker demo]# mkdir docker-java
 ```
 
 ## 2. 创建Java文件
 在docker-java目录下，创建一个Java文件：
 ```java
-public class Qikegu{
+public class HelloWorld {
     public static void main(String[] args){
         System.out.println("This is java docker Hello World \n");
     }
@@ -32,24 +32,24 @@ public class Qikegu{
 Dockerfile
 ```dockerfile
 FROM java:8
-COPY . /var/www/java
+COPY ../07 /var/www/java
 WORKDIR /var/www/java
-RUN javac Qikegu.java
-CMD ["java", "Qikegu"]
+RUN javac HelloWorld.java
+CMD ["java", "HelloWorld"]
 ```
 所有指令都大写，这是惯例。
 
 现在docker-java目录下有2个文件：
 ```shell script
-[root@qikegu docker-java]# ls
-Dockerfile  Qikegu.java
+[root@docker docker-java]# ls
+Dockerfile  HelloWorld.java
 ```
 
 ## 4. 构建 Docker 镜像
-切换到docker-java目录，运行docker build -t qikegu-java . 命令，构建Docker镜像。
-Docker镜像可以任意取名，此处命名为qikegu-java。
+切换到docker-java目录，运行docker build -t hello-docker-java . 命令，构建Docker镜像。
+Docker镜像可以任意取名，此处命名为 hello-docker-java
 ```shell script
-[root@qikegu docker-java]# docker build -t qikegu-java .
+[root@docker docker-java]# docker build -t hello-docker-java .
 Sending build context to Docker daemon  3.072kB
 Step 1/5 : FROM java:8
  ---> d23bdf5b1b1b
@@ -59,32 +59,32 @@ Step 2/5 : COPY . /var/www/java
 Step 3/5 : WORKDIR /var/www/java
  ---> Using cache
  ---> 2eacd7222454
-Step 4/5 : RUN javac Qikegu.java
+Step 4/5 : RUN javac HelloWorld.java
  ---> Using cache
  ---> bf254a2eec11
-Step 5/5 : CMD ["java", "Qikegu"]
+Step 5/5 : CMD ["java", "HelloWorld"]
  ---> Using cache
  ---> 1842ec92df2d
 Successfully built 1842ec92df2d
-Successfully tagged qikegu-java:latest
+Successfully tagged hello-docker-java:latest
 ```
 查看镜像
 ```shell script
-[root@qikegu docker-java]# docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-qikegu-java         latest              1842ec92df2d        13 minutes ago      643MB
-<none>              <none>              327ab0702d14        14 minutes ago      643MB
+[root@docker docker-java]# docker images
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+hello-docker-java         latest              1842ec92df2d        13 minutes ago      643MB
+<none>                     <none>              327ab0702d14        14 minutes ago      643MB
 ...
 ```
 这里，最后使用docker images查看镜像，可以看到构建镜像成功。接下来就可以运行镜像了。
 
 ## 5. 运行 Docker 镜像
-执行docker run qikegu-java命令运行镜像：
+执行docker run hello-docker-java 命令运行镜像：
 ```shell script
-[root@qikegu docker-java]# docker run qikegu-java
-This is java docker app - qikegu.com
+[root@docker docker-java]# docker run hello-docker-java
+This is java docker Hello World
 ```
-可以看到，qikegu-java镜像成功运行，输出了一条信息。
+可以看到，hello-docker-java 镜像成功运行，输出了一条信息。
 
 
 ## ps 如果遇到不输出的

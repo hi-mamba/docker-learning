@@ -4,3 +4,5 @@
 
 ![](../images/vm_vs_docker_container.png)
 
+
+

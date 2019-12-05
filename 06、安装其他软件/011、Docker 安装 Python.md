@@ -4,6 +4,8 @@
 
 ## 方法一、docker pull python:3.5
 
+> 鉴于 Docker 容器随时可能被丢弃，所以最好的办法是创建自定义镜像。
+
 查找 Docker Hub 上的 Python 官方镜像
 <https://hub.docker.com/_/python?tab=tags>
 

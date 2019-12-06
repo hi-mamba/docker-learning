@@ -2,6 +2,11 @@
 
 # WHY
 
+> docker-compose 命令默认使用的配置文件是当前目录中的 docker-compose.yml 文件，
+>当然我们可以通过 -f 选项指定一个其它名称的配置文件
+  
+
+
 ## 为什么使用docker-compose?
 如果采用docker run的方式一个一个容器去创建十分麻烦。
 为了能更高效的批量创建容器，docker推出了docker-compose工具.

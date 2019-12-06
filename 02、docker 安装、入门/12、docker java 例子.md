@@ -92,7 +92,7 @@ This is java docker Hello World
 比如我的镜像是这个。。。。死活就是没有输出出来
 ```dockerfile
 FROM openjdk:8-jdk-alpine
-COPY . /var/www/java
+COPY ../04 /var/www/java
 WORKDIR /var/www/java
 RUN javac TimeZoneExample.java
 CMD ["java", "TimeZoneExample"]

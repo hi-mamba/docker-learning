@@ -1,0 +1,29 @@
+# compose 自动化部署
+# https://hub.docker.com/r/frolvlad/alpine-python-machinelearning
+
+#  docker-compose up --build 重新构建,否则修改了执行 docker-compose up 不起作用
+
+# 如何指定执行这个配置
+#  docker-compose -f docker-compose-hello-world.yml up
+
+# 如果修改了文件，需要 build
+#  docker-compose -f docker-compose-hello-world.yml up --build
+
+version: '3'
+services:
+  #服务名称
+  docker-compose-hello-world:
+    build:
+      dockerfile: Dockerfile.hello-world
+      context: .
+    #指定镜像名称
+    # image:
+    #down掉自动重启
+    # #宿主机和容器关联的目录【目录映射】
+    #volumes:
+    #restart: always
+    #容器内执行命令
+    command:    #容器内执行命令
+      ["python", "./hello-world.py"]
+
+

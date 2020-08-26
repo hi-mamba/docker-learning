@@ -15,6 +15,10 @@
 
 > $ sudo apt-get install  docker-engine
 
+`没有可用软件包 docker-engine`
+
+> $ sudo apt-get install  docker
+
 ## centOs 安装 
 > $ sudo yum install docker
 

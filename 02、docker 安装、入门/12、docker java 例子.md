@@ -146,4 +146,4 @@ docker run -v "$PWD":/usr/src/hello-docker -w /usr/src/hello-docker openjdk:8 ja
 This is java docker Hello World
 ```
 /usr/src/hello-docker 这个文件夹路径你需要注意，
-这里应该是你docker  file sharing 里面设置的
+这里应该是你 docker配置的  file sharing 里面设置的

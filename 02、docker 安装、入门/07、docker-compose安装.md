@@ -42,6 +42,13 @@ $ docker-compose version
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+### sudo: docker-compose：找不到命令
+```shell script
+$ sudo: docker-compose：找不到命令
+```
+解决办法 
+> 不能使用sudo 执行，需要授权 ，sudo chmod +x /usr/local/bin/docker-compose
+
 ### [14660] Cannot open self /usr/local/bin/docker-compose or archive /usr/local/bin/docker-compose.pkg
 
 > 安装时，curl下载下来的文件是不完整的，而且没有给出任何错误信，

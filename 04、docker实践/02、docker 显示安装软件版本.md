@@ -7,7 +7,7 @@
 REPOSITORY                        TAG                 IMAGE ID            CREATED             SIZE
 openjdk                           8                   09df0563bdfc        10 days ago         488MB
 python                            latest              0a3a95c81a2b        10 days ago         932MB
-pankui/puppeteer-docker-example   latest              7354071777c1        11 days ago         1.2GB
+mamba/puppeteer-docker-example   latest              7354071777c1        11 days ago         1.2GB
 mysql/mysql-server                latest              b172b40598f0        7 weeks ago         350MB
 openjdk                           8-jdk-alpine        a3562aa0b991        6 months ago        105MB
 hello-world                       latest              fce289e99eb9        11 months ago       1.84kB

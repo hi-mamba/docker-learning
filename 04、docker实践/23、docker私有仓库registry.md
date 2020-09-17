@@ -1,4 +1,4 @@
-##### [原文](https://www.sudo.ren/article/17)
+##### [参考](https://www.sudo.ren/article/17)
 
 
 # docker私有仓库registry

@@ -22,3 +22,12 @@ docker-compose [-f=<arg>...] [options] [COMMAND] [ARGS...]
 --verbose 输出更多调试信息。
 
 -v, --version 打印版本并退出。
+
+
+
+--compatibility 是兼容性命令 
+
+up 是从拉取到构建到运行的全套指令
+
+-d 是后台运行
+
